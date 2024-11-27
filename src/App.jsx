@@ -1,12 +1,12 @@
 import About from "./components/About";
 import AboutMe from "./components/AboutMe";
-import Contact from "./components/Contact";
 import Experience from "./components/Experience";
 import NavBar from "./components/NavBar";
 import Project from "./components/Projects";
 import { NavMenu } from "./components/SideBar";
 import Skills from "./components/Skills";
 import Theme from "./components/Theme";
+import {Contact} from './components/Contact';
 
 
 export default function App() {

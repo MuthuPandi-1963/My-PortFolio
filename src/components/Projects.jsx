@@ -1,5 +1,6 @@
-import { useContext } from "react";
+import { useContext } from "react"; 
 import ThemeContext from "../context/themeContext";
+import {motion} from 'framer-motion';
 const projects = [
     {
       name: "Instagram Clone with ChatBot Integration",
@@ -33,7 +34,10 @@ export default function Project() {
                 
                     {projects.map(({name,img,technologies,description},id)=>(
                       
-                        <div className={classImg} key={id}>
+                        <motion.div 
+                        whileInView={{scale:1 , opacity:1}}
+                        initial={{scale:0.7 , opacity:0}}
+                        transition={{duration:0.7 , ease:'easeInOut',delay:0.2}} className={classImg} key={id}>
                         <img src={`images/${img}.jpg`} alt={img} className="w-full h-full md:w-40 md:h-40 object-cover rounded-xl " />
                         <div className="grid justify-center" >
                             <h1 className="font-black text-2xl my-2">{name}:</h1>
@@ -43,7 +47,7 @@ export default function Project() {
                     ))}
                         </div>
                 </div>
-                </div> ))}
+                </motion.div> ))}
         </div>
     )
 };
