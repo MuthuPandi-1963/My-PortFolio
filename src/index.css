@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+*{
+    margin: 0;
+    padding: 0;
+}
+:root{
+    @apply p-0
+}
 #icons li img {
     width: 22px;
 }
@@ -13,6 +20,19 @@
     @apply  cursor-pointer hover:text-shadow-lg hover:text-blue-500  px-2 py-1 rounded-xl font-bold  hover:shadow-gray-500
 
 }
-/* .menu li::after{
-    @apply contents-[' ']
-} */
+.star{
+    @apply gap-x-2 py-2
+}
+.star button{
+    @apply  cursor-pointer hover:text-shadow-lg hover:text-orange-500  rounded-xl font-bold  hover:shadow-gray-500
+
+}
+.star button svg{
+    @apply w-6 h-6 
+}
+.star button .bi-bi-star-fill{
+    @apply hover:text-red-950 box-shadow-lg-dark
+}
+.rating svg{
+    @apply w-6 h-6 md:w-8 md:h-8 justify-self-end float-right text-shadow-xl 
+}
