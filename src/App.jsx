@@ -10,12 +10,7 @@ import Theme from "./components/Theme";
 import { Contact } from "./components/Contact";
 import { addDoc, collection, doc, getDoc } from "firebase/firestore";
 
-import getTimeAgo from "./firebase/time";
-import Review_star from "../public/Icons/Review-star";
 import ReviewForm from "./components/reviewForm";
-import Review from "./components/Review";
-
-
 
 export default function App() {
   const [update,setUpdate]=useState(false)

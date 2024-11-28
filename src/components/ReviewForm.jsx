@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { useContext, useState } from "react";
 import Review_star from "../../public/Icons/Review-star";
 import Contact from "./Contact";
 import ThemeContext from "../context/themeContext";
@@ -25,4 +25,4 @@ export default function ReviewForm() {
     )
 };
 
-export const ReviewCtx = createContext();
+// export const ReviewCtx = createContext();
