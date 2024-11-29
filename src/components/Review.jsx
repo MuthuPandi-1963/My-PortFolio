@@ -125,6 +125,8 @@ export default function Review({updateReview,setAuthEmail}) {
                         if(i<=Rating) ratingArray.push(true)
                         else ratingArray.push(false)
                     }
+                    console.log(Image);
+                    
                 
                 return(
                     <div className={`${theme ? 'shadow-md shadow-blue-500 border-gray-500' : 'shadow-lg shadow-slate-600'} p-6 rounded-xl my-2 ml-2`} key={id}>

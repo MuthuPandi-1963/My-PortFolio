@@ -1,5 +1,4 @@
 import { useContext, useState } from "react";
-import Review_star from "../../public/Icons/Review-star";
 import Contact from "./Contact";
 import ThemeContext from "../context/themeContext";
 import Review from "./Review";

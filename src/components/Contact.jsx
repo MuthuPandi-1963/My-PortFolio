@@ -1,11 +1,11 @@
 import PropTypes from "prop-types"
 import { useContext, useState ,useRef} from "react"
 import ThemeContext from "../context/themeContext";
-import Review_star from "../../public/Icons/Review-star";
 import getTimeAgo from "../firebase/time";
 import { addDoc, collection, doc, getDoc } from "firebase/firestore";
 import { db } from "../firebase/firebaseconfig";
 import {motion} from 'framer-motion';
+import Review_star from "./Review_star";
 const stars = [false, false, false, false, false]
 export function Contact({img,setImg,setUpdatedReview , AuthEmail}) {
     const {theme} = useContext(ThemeContext)
