@@ -132,9 +132,10 @@ export default function Review({updateReview,setAuthEmail}) {
                     <div className={`${theme ? 'shadow-md shadow-blue-500 border-gray-500' : 'shadow-lg shadow-slate-600'} p-6 rounded-xl my-2 ml-2`} key={id}>
                         <div className="flex flex-nowrap items-center justify-between ">
                             <div className="flex gap-x-4 items-center">
-                            <img src={Image} alt="Image" className="w-10 h-10 rounded-[50%] object-cover" />
+                            <img src={`avatar/${Image}`} alt="Image" className="w-10 h-10 rounded-[50%] object-cover" />
+
                             <div className="grid gap-0 content-start">
-                                <p className="text-xl md:text-2xl font-bold font-serif">{Name}</p>
+                                <p className="text-base md:text-xl font-bold font-serif">{Name}</p>
                                 <p className="text-sm md:text-base tracking-tighter pl-1 font-semibold">{PersonStatus}</p>
                             </div>
                             </div>

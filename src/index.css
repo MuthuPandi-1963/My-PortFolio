@@ -36,3 +36,7 @@
 .rating svg{
     @apply w-6 h-6 md:w-8 md:h-8 justify-self-end float-right text-shadow-xl 
 }
+.down img{
+    @apply w-10 h-10  bg-black rounded-xl hover:bg-white
+
+}

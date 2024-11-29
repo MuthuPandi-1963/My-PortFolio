@@ -6,6 +6,7 @@ import Project from "./components/Projects";
 import { NavMenu } from "./components/SideBar";
 import Skills from "./components/Skills";
 import Star from "./components/Star";
+
 import Theme from "./components/Theme";
 
 export default function App() {

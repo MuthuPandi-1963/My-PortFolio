@@ -12,6 +12,12 @@ export default {
         sm: '1px 1px rgba(0, 0, 0, 0.1)',       // Small shadow
         lg: '4px 4px rgba(0, 0, 0, 0.35)',       // Large shadow
       },
+      animation: {
+        'custom-ping': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
+      },
+      animation: {
+        'slow-ping': 'ping 3s cubic-bezier(0, 0, 0.2, 1) infinite',
+      },
       boxShadow:{
         'custom-lg':'inset 0 2px 4px blue,0 4px 6px rgba(0, 0, 0, 0.3)',
       }
@@ -40,6 +46,9 @@ export default {
       },
       '.box-shadow-lg-dark': { // Corrected class name
         boxShadow: 'inset 0 0  100px 0px #1f1f1f,2px 2px 10px blueviolet',
+      },
+      animation: {
+        'slow-ping': 'ping 2s cubic-bezier(0, 0, 0.2, 1) infinite',
       },
       });
     },
