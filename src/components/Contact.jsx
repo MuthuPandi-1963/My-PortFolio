@@ -3,9 +3,10 @@ import { useContext, useState ,useRef} from "react"
 import ThemeContext from "../context/themeContext";
 import getTimeAgo from "../firebase/time";
 import { addDoc, collection, doc, getDoc } from "firebase/firestore";
-import { db } from "../firebase/firebaseconfig";
+import { db, storage } from "../firebase/firebaseconfig";
 import {motion} from 'framer-motion';
 import Review_star from "./Review_star";
+import { ref, uploadBytes, getDownloadURL } from "firebase/storage";
 const stars = [false, false, false, false, false]
 export function Contact({img,setImg,setUpdatedReview , AuthEmail}) {
     const {theme} = useContext(ThemeContext)
@@ -20,12 +21,28 @@ export function Contact({img,setImg,setUpdatedReview , AuthEmail}) {
     const FileInputRef = useRef()
     const StarCount = star.filter(item=>item==true).length
     // console.log(StarCount);
-    function handleImgChange(event){
+    async function handleImgChange(event){
         const file = event.target.files[0];
-        if(file){
-            setImg(URL.createObjectURL(file));
-            setSelectedImage(URL.createObjectURL(file));
-        }
+            if (file) {
+                try {
+                    // Generate a temporary preview URL for immediate display
+                    setImg(URL.createObjectURL(file));
+        
+                    // Upload the image to Firebase Storage
+                    const storageRef = ref(storage, `images/${file.name}`);
+                    await uploadBytes(storageRef, file);
+        
+                    // Get the public URL for the uploaded image
+                    const downloadURL = await getDownloadURL(storageRef);
+        
+                    console.log("Image uploaded successfully:", downloadURL);
+        
+                    // Save the download URL in your state or database
+                    setSelectedImage(downloadURL);
+                } catch (error) {
+                    console.error("Error uploading image:", error);
+                }
+            }
     }
     async function HandleClick(){
         const Name =NameRef.current.value 
