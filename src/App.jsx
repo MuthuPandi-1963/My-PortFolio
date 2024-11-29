@@ -6,7 +6,7 @@ import Project from "./components/Projects";
 import { NavMenu } from "./components/SideBar";
 import Skills from "./components/Skills";
 import Theme from "./components/Theme";
-import ReviewForm from "./components/reviewForm";
+import ReviewForm from "./components/reviewForm.jsx";
 
 export default function App() {
 
