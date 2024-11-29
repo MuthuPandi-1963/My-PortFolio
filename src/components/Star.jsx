@@ -1,9 +1,9 @@
 import { useContext, useState } from "react";
-import Contact from "./Contact";
+// import Contact from "./Contact";
 import ThemeContext from "../context/themeContext";
 import Review from "./Review";
 
-export default function ReviewForm() {
+export default function Star() {
     const [img,setImg] =useState(null)
     const {theme} = useContext(ThemeContext);
     const [updateReview,setUpdatedReview] = useState(false)
