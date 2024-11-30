@@ -1,3 +1,5 @@
+import { storage } from "./firebaseconfig";
+
 export default function getTimeAgo(firebaseTimestamp) {
     const now = new Date();
     const time = new Date(firebaseTimestamp.seconds * 1000); // Convert seconds to milliseconds

@@ -1,24 +1,17 @@
-// Import necessary Firebase functions
 import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
 import { getFirestore } from "firebase/firestore";
 import { getStorage } from "firebase/storage";
-// Your Firebase project configuration
-// require('dotenv').config()
 const firebaseConfig = {
-  apiKey: "AIzaSyBFR5tYdlLi8m59Pii1j3SAaYEK_iffsF4",
-  authDomain: "prank-portflio.firebaseapp.com",
-  projectId: "prank-portflio",
-  storageBucket: "prank-portflio.appspot.com",
-  messagingSenderId: "63540365628",
-  appId: "1:63540365628:web:4c8063598dc5b913597639",
-  measurementId: "G-6ESCNRZ19D"
+  apiKey: "AIzaSyDiCKn7e20jYKpVwMMXUobt761MpNp5tH4",
+  authDomain: "dummy-59bd8.firebaseapp.com",
+  projectId: "dummy-59bd8",
+  storageBucket: "dummy-59bd8.firebasestorage.app",
+  messagingSenderId: "229376139539",
+  appId: "1:229376139539:web:f7e4bfb6098a6db7643ae6"
 };
 
-// Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
+const storage = getStorage(app);
+const db =getFirestore(app)
 
-export default app;
+export { storage,db };

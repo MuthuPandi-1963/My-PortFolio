@@ -52,6 +52,8 @@ export default {
       },
       });
     },
+    
+      require('tailwind-scrollbar'), // Add the tailwind-scrollbar plugin
   ],
 }
 

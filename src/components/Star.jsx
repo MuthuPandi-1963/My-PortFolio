@@ -1,48 +1,190 @@
-import { useContext, useState } from "react";
+import { useContext, useState, useEffect } from "react";
 import ThemeContext from "../context/themeContext";
 import Review from "./Review";
 import Contact from "./Contact";
-import { button } from "framer-motion/client";
-const images = ["avatar-1.png","avatar-2.png","avatar-3.png","avatar-4.png","avatar-5.png","avatar-6.png","avatar-7.png","avatar-8.png","avatar-9.png","avatar-10.png","avatar-11.png","avatar-12.png","avatar-13.png","avatar-14.png","avatar-15.png","avatar-16.png","avatar-17.png","avatar-18.png",
-    "image-1.jpg","image-2.jpg","image-3.jpg","image-4.jpg","image-5.jpg","image-6.jpg","image-7.jpg","image-8.jpg","image-9.jpg","image-10.jpg","image-11.jpg","image-12.jpg","image-13.jpg","image-14.jpg","image-15.jpg","image-16.jpg",
-]
-export default function Star() {
-    const [img,setImg] =useState(null)
-    const {theme} = useContext(ThemeContext);
-    const [updateReview,setUpdatedReview] = useState(false)
-    const [authEmail,setAuthEmail] =useState()
-    const [viewImg,setViewImg] =useState(false)
-    const [profile,setProfile] =useState(false)
-    console.log(img);
-    function HandleClick(item){
-        setImg(item)
-        setViewImg(prev=>!prev)
-        setProfile(true)
-    }
-    
-    return (
-        <>
-        <div className={`w-[80%] mx-auto rounded-lg my-4  md:p-6 py-8  border ${theme ? 'shadow-md shadow-blue-500 border-gray-500' : 'shadow-lg shadow-slate-600'}`}>
-           <div className="w-full mx-auto md:flex ">
-            <div className=" grid">
-                <div className="justify-self-center flex items-center gap-x-4">
-                <p className="text-xl md:text-2xl justify-self-center  my-2">choose Profile Picture </p>
-                <button className="down justify-self-center  rounded-xl  "><img src="Icons/down.svg" alt=""/></button></div>
-                {viewImg &&  (
-                     <div className="flex items-center gap-3 flex-wrap w-96 justify-center h-96 md:h-96 overflow-y-scroll">
-                        {images.map((item,id)=>(
-                            <button className={` rounded-full ${theme ? ' shadow-md hover:shadow-blue-700 border-gray-500':' hover:box-shadow-lg-dark'}`} onClick={()=>HandleClick(item)}><img src={`avatar/${item}`} alt={item} className="w-16 h-16 rounded-full object-cover" /></button>
-                        ))}
-                     </div>
-                )}
-     {img && profile && <button><img src={`avatar/${img}`} alt="Source"  className="w-[80%] h-60 m-2 object-cover md:w-[500px] md:h-[300px] rounded-xl justify-self-center hover:box-shadow-lg-dark hover:opacity-60"/></button>}
-    {!viewImg && !profile && <button onClick={()=>setViewImg(true)}><img src="images/coder.avif" alt="coder" className="hover:box-shadow-lg-dark hover:opacity-60 rounded-xl justify-self-center w-full" /></button> }
-     </div>
-      <Contact img={img}  setImg={setImg} setUpdatedReview={setUpdatedReview} AuthEmail={authEmail} setViewImg={setViewImg} setProfile={setProfile}/>
-            </div> 
-        </div>
-        <Review updateReview={updateReview} setAuthEmail={setAuthEmail} />
-        </>
+import { collection, getDocs, query } from "firebase/firestore";
+import { db } from "../firebase/firebaseconfig";
+import { storage } from "../firebase/firebaseconfig.js";
+import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 
-    )
-};
+export default function Star() {
+  const [img, setImg] = useState(null);
+  const [storedImg, setStoredImg] = useState([]);
+  const { theme } = useContext(ThemeContext);
+  const [updateReview, setUpdatedReview] = useState(false);
+  const [authEmail, setAuthEmail] = useState();
+  const [viewImg, setViewImg] = useState(false);
+  
+  async function handleImgChange(event) {
+    const file = event.target.files[0];
+    if (file) {
+      if (!file.type.startsWith("image/")) {
+        setError("Please upload a valid image file.");
+        setTimeout(() => setError(null), 3500);
+        return;
+      }
+
+      try {
+        const storageRef = ref(storage, `images/${file.name}`);
+        await uploadBytes(storageRef, file);
+        const downloadURL = await getDownloadURL(storageRef);
+        console.log(downloadURL);
+        
+        setImg(downloadURL);
+        HandlePickingImg(downloadURL);
+      } catch (error) {
+        console.log(error);
+        
+        setError("Error uploading image. Please try again.");
+        setTimeout(() => setError(null), 3500);
+      }
+    }
+  }
+
+  function HandlePickingImg(url) {
+    setImg(url);
+  }
+  useEffect(() => {
+    async function fetchAvatars() {
+      try {
+        const q = query(collection(db, "avatars"));
+        const querySnapshot = await getDocs(q);
+        const images = querySnapshot.docs.map((doc) => ({
+          id: doc.id,
+          ...doc.data(),
+        }));
+        setStoredImg(images);
+      } catch (error) {
+        console.error("Error fetching avatars:", error);
+      }
+    }
+
+    fetchAvatars();
+  }, []);
+  const profileImgClassName = `rounded-full object-fill  hover:box-shadow-lg-dark hover:opacity-60 w-96  h-72 rounded-xl justify-self-center md:w-full`;
+  const profileBtnClassName = `rounded-full ${
+    theme
+      ? "shadow-md hover:shadow-blue-700 border-gray-500"
+      : "hover:box-shadow-lg-dark "
+  } `;
+  return (
+    <>
+      <div
+        className={`w-[80%] mx-auto rounded-lg my-4  md:p-6 py-8  border ${
+          theme
+            ? "shadow-md shadow-blue-500 border-gray-500"
+            : "shadow-lg shadow-slate-600"
+        }`}
+      >
+        <div className="w-full mx-auto md:flex md:h-[400px] ">
+          <div className="grid lg:w-[40%] sm:w-full  md:h-[400px]">
+            <div className="justify-self-center flex items-center gap-x-4">
+              <p className="text-base md:xl xl:text-2xl justify-self-center  my-2 font-semibold">
+                {!viewImg ? "Choose Profile Picture" : "Remove"}
+              </p>
+              <button
+                className="down justify-self-center rounded-xl"
+                onClick={() => {
+                  setViewImg((prev) => !prev);
+                  setImg(null);
+                }}
+              >
+                {!viewImg ? (
+                  <img src="Icons/down.svg" alt="Dropdown Icon" />
+                ) : (
+                  <img src="Icons/wrong.svg" alt="wrong Icon" />
+                )}
+              </button>
+            </div>
+            {viewImg && !img ? (
+              <div className="w-[80%] md:w-60 lg:w-full  my-2 rounded-xl p-2 shadow-lg shadow-blue-500 flex items-center gap-3 flex-wrap justify-center overflow-y-scroll">
+                <div className="grid place-content-start h-16 place-items-center">
+                  <label
+                    htmlFor="file-upload"
+                    className={`w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold cursor-pointer shadow-md ${
+                      theme ? "bg-gray-600 text-black" : "bg-gray-300 text-black"
+                    } hover:bg-blue-600`}
+                  >
+                    +
+                  </label>
+
+                  <input
+                    type="file"
+                    id="file-upload"
+                    accept="image/*"
+                    onChange={(e)=>handleImgChange(e)}
+                    className="hidden"
+                  />
+                  </div>
+                {storedImg.map(({ name = "Avatar", url = "" }, id) => (
+                  <button
+                    key={id}
+                    className={profileBtnClassName}
+                    onClick={() => HandlePickingImg(url)}
+                  >
+                    <img
+                      src={url}
+                      alt={name}
+                      className="w-16 h-16 rounded-full "
+                    />
+                  </button>
+                ))}
+              </div>
+            ) : (
+              <button
+                onClick={() => setViewImg((prev) => !prev)}
+                className="w-[80%] lg:w-full  md:h-[300px] mx-auto my-2 rounded-xl p-2"
+              >
+                <img
+                  src={`${img ? img : "images/coder.avif"}`}
+                  alt="Coder"
+                  className={profileImgClassName}
+                />
+              </button>
+            )}
+          </div>
+          <Contact
+            img={img}
+            AuthEmail={authEmail}
+            setImg={setImg}
+            setUpdatedReview={setUpdatedReview}
+            authMail={authEmail}
+            setViewImg={setViewImg}
+          />
+        </div>
+      </div>
+      <Review updateReview={updateReview} setAuthEmail={setAuthEmail} />
+    </>
+  );
+}
+
+export function ProfileImage(){
+  async function handleImgChange(event) {
+    const file = event.target.files[0];
+    if (file) {
+      if (!file.type.startsWith("image/")) {
+        setError("Please upload a valid image file.");
+        setTimeout(() => setError(null), 3500);
+        return;
+      }
+
+      try {
+        const storageRef = ref(storage, `images/${file.name}`);
+        await uploadBytes(storageRef, file);
+        const downloadURL = await getDownloadURL(storageRef);
+        console.log(downloadURL);
+        
+        setImg(downloadURL);
+      } catch (error) {
+        console.log(error);
+        
+        setError("Error uploading image. Please try again.");
+        setTimeout(() => setError(null), 3500);
+      }
+    }
+  }
+  return (
+    <>
+    </>
+  )
+}
