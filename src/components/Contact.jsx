@@ -59,7 +59,7 @@ export default function Contact({img,setImg,setUpdatedReview,authMail,setViewImg
       GmailRef.current.value=""
       FeedBackRef.current.value=""
       PersonRef.current.value =""
-      setStar(stars)
+      setStar(stars)  
       setImg(null)
       setUpdatedReview(prev=>!prev)
       setViewImg(false)
@@ -85,7 +85,7 @@ const classNameInput =`pl-2 flex-grow my-1 border-2 rounded placeholder:text-bla
                     <input type="text" placeholder={`Enter a Name`}  className={classNameInput} ref={NameRef}/>
                     <input type="email" placeholder={`Enter a Email Address`}  className={classNameInput} ref={GmailRef}/>
                     <input type="email" placeholder={`You are my...(Ex : Student,Junior..)`}  className={classNameInput} ref={PersonRef}/>
-                    <textarea type="text" placeholder={`Enter a feedback`} ref={FeedBackRef} className={` md:flex-grow mx-2 h-20 my-1 rounded-md border-2 placeholder:text-black pl-2 text-black ${theme ?  'border-black' : ' border-black'}`}></textarea>
+                    <textarea type="text" placeholder={`Enter a feedback and Give me a Honest Review`} ref={FeedBackRef} className={`pl-4 md:flex-grow mx-2 h-20 my-1 rounded-md border-2 placeholder:text-black  text-black ${theme ?  'border-black' : ' border-black'}`}></textarea>
                     <button onClick={HandleSubmit} className=" bg-orange-600 hover:bg-orange-400  my-2 py-1 px-4 mx-2 rounded-md text-md cursor-pointer" type="submit">Post now</button>
                     </div>
         )

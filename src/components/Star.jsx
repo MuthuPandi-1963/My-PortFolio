@@ -62,7 +62,7 @@ export default function Star() {
     fetchAvatars();
   }, []);
   const profileImgClassName = `rounded-full object-fill  hover:box-shadow-lg-dark hover:opacity-60 w-96  h-72 rounded-xl justify-self-center md:w-full`;
-  const profileBtnClassName = `rounded-full ${
+  const profileBtnClassName = `rounded-full justify-self-center ${
     theme
       ? "shadow-md hover:shadow-blue-700 border-gray-500"
       : "hover:box-shadow-lg-dark "
@@ -97,15 +97,15 @@ export default function Star() {
               </button>
             </div>
             {viewImg && !img ? (
-              <div className="w-[80%] md:w-60 lg:w-full  my-2 rounded-xl p-2 shadow-lg shadow-blue-500 flex items-center gap-3 flex-wrap justify-center overflow-y-scroll">
+              <div className="w-[80%] md:w-60 mx-auto lg:w-full h-80  justify-center md:h-[300px] my-2 rounded-xl p-2 shadow-lg shadow-blue-500 flex items-center gap-3 flex-wrap overflow-y-scroll">
                 <div className="grid place-content-start h-16 place-items-center">
                   <label
                     htmlFor="file-upload"
-                    className={`w-16 h-16 rounded-full flex items-center justify-center text-3xl font-bold cursor-pointer shadow-md ${
+                    className={`w-16 grid place-content-center h-16 rounded-full p-0 m-0 items-center justify-center text-[10px] text-center font-bold cursor-pointer shadow-md ${
                       theme ? "bg-gray-600 text-black" : "bg-gray-300 text-black"
                     } hover:bg-blue-600`}
                   >
-                    +
+                    <p className="text-[10px]">add  Yours </p><p className="text-2xl">+</p>
                   </label>
 
                   <input
