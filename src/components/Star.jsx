@@ -61,7 +61,7 @@ export default function Star() {
 
     fetchAvatars();
   }, []);
-  const profileImgClassName = `rounded-full object-fill  hover:box-shadow-lg-dark hover:opacity-60 w-96  h-72 rounded-xl justify-self-center md:w-full`;
+  const profileImgClassName = `rounded-full object-center  hover:box-shadow-lg-dark hover:opacity-60 w-96  h-72 rounded-xl justify-self-center md:w-full`;
   const profileBtnClassName = `rounded-full justify-self-center ${
     theme
       ? "shadow-md hover:shadow-blue-700 border-gray-500"
