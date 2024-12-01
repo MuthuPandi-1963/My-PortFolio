@@ -13,7 +13,7 @@ export default function NavBar() {
   return (
     <nav className={`nav flex items-center py-1 md:py-3  px-2 justify-between md:px-8 sticky top-0  z-50 ${theme ? 'bg-white' : 'bg-black'}`}>
       <div id="logo" className="flex items-center gap-x-2 px-2">
-        <img src="images/coder.avif" alt="" className="w-8 h-8 md:w-12 md:h-12 rounded-2xl" />
+        <img src='https://firebasestorage.googleapis.com/v0/b/dummy-59bd8.firebasestorage.app/o/coder.avif?alt=media&token=0aba7f72-ceb0-4f00-b9bf-f842df6ae975' alt="" className="w-8 h-8 md:w-12 md:h-12 rounded-2xl" />
         <h1 className="text-xl md:text-2xl whitespace-nowrap font-bold bg-gradient-to-tr to-indigo-700 tracking-wide">
           Prank Coder
         </h1>

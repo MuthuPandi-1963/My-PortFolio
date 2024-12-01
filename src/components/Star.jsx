@@ -136,7 +136,7 @@ export default function Star() {
                 className="w-[80%] lg:w-full  md:h-[300px] mx-auto my-2 rounded-xl p-2"
               >
                 <img
-                  src={`${img ? img : "images/coder.avif"}`}
+                  src={`${img ? img : 'https://firebasestorage.googleapis.com/v0/b/dummy-59bd8.firebasestorage.app/o/coder.avif?alt=media&token=0aba7f72-ceb0-4f00-b9bf-f842df6ae975'}`}
                   alt="Coder"
                   className={profileImgClassName}
                 />
