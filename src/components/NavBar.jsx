@@ -22,7 +22,7 @@ export default function NavBar() {
       <div className="hidden lg:block">
       <SideBar/>
       </div>
-      <div id="icons" className="flex items-center">
+      <div id="icons" className="flex items-center bg-transparent">
         {theme ? (
           <button onClick={HandleClick } className={`${theme ? 'hover:text-blue-700' : 'hover:text-violet-800'}`}>
             <Moon color={color} />

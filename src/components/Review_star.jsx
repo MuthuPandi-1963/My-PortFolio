@@ -20,7 +20,7 @@ export default function ({className,star,setStar,stars}) {
 }
   return (
     
-    <div className={`star flex justify-center items-center ${className}`}>
+    <div className={`star flex justify-center items-center ${className} bg-transparent`}>
       {star.map((item, id) => (
         <button key={id} onClick={() =>{star[id]==true ? setStar(stars): HandleStar(id)}}>
          {item ?  <Star_fill color = {"Orange"}/> :<Star/> }
