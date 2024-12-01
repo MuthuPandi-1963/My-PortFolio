@@ -78,10 +78,6 @@ const classNameInput =`pl-2 flex-grow my-1 border-2 rounded placeholder:text-bla
                  className={`w-3/4 mx-auto fixed bg-orange-400 py-2 top-[20%] text-black text-center rounded-md font-bold  px-4 md:px-16 flex items-center border ${theme ? 'shadow-md shadow-blue-500 border-gray-500' : 'shadow-lg shadow-slate-600'}`}>{error} and try Again</motion.p>}
                     <h1 className="text-center text-2xl font-semibold mt-2">Write a Review❤️</h1>
                     <Review_star className ={"md:justify-self-end"} star={star} stars={stars} setStar={setStar}  />
-                    {/* <div className="ml-2 my-2">
-                    <label htmlFor=""  >Profile  Picture : </label>
-                    <input type="file" accept="image/*" className="mt-2" ref={FileInputRef} onChange={(e)=>handleImgChange(e)} />
-                    </div> */}
                     <input type="text" placeholder={`Enter a Name`}  className={classNameInput} ref={NameRef}/>
                     <input type="email" placeholder={`Enter a Email Address`}  className={classNameInput} ref={GmailRef}/>
                     <input type="email" placeholder={`You are my...(Ex : Student,Junior..)`}  className={classNameInput} ref={PersonRef}/>
