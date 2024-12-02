@@ -45,8 +45,8 @@ export default function Review({updateReview,setAuthEmail}) {
                             <div className="flex gap-x-4 items-center">
                             <img src={Image} alt="Image" className="w-10 h-10 rounded-[50%] object-cover" />
 
-                            <div className="grid gap-0 content-start">
-                                <p className="text-base md:text-xl font-bold font-serif">{Name}</p>
+                            <div className="grid gap-0 content-start items-center">
+                                <p className="text-base md:text-xl flex items-center gap-x-1 font-bold font-serif">{Name ==="Muthupandi" ?(<> <span>{Name}</span><img src='images/auth.png' className="w-4 h-4 "/></>):Name}</p>
                                 <p className="text-sm md:text-base tracking-tighter pl-1font-semibold">{Person}</p>
                             </div>
                             </div>
