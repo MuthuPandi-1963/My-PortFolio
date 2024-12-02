@@ -40,7 +40,6 @@ export default function Contact({img,setImg,setUpdatedReview,authMail,setViewImg
           ,3500)
           return;
         }
-        
         try {
           // Reference to the Firestore collection
           const docRef = await addDoc(collection(db, "Reviews"), data);

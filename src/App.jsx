@@ -8,11 +8,6 @@ import Skills from "./components/Skills";
 import Star from "./components/Star";
 import Theme from "./components/Theme";
 
-import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
-import { collection, addDoc, Timestamp } from "firebase/firestore";
-import { db, storage } from "./firebase/firebaseconfig";
-
-
 export default function App() {
   return (
     <Theme>
