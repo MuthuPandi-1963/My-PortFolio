@@ -1,11 +1,11 @@
 import { useContext , useEffect, useState } from "react";
+import { query, getDocs, collection } from "firebase/firestore";
 import getTimeAgo from "../firebase/time";
 import { Star, Star_fill } from "../icons/Icon";
-import ThemeContext from "../context/themeContext";
-import { query, getDocs, collection } from "firebase/firestore";
+import ThemeContext from "../ColorTheme/themeContext";
 import { db } from "../firebase/firebaseconfig";
 
-export default function Review({updateReview,setAuthEmail}) {
+export default function Review_Show({updateReview,setAuthEmail}) {
     const {theme} = useContext(ThemeContext)
     const [review,setReview]=useState([])
     useEffect(()=>{
@@ -18,7 +18,6 @@ export default function Review({updateReview,setAuthEmail}) {
         }
         GetData()
       },[updateReview])
-      console.log(review);
       
     return (
         <div className="my-10 w-[95%] mx-auto">
@@ -30,9 +29,6 @@ export default function Review({updateReview,setAuthEmail}) {
                         if(i<=Rating) ratingArray.push(true)
                         else ratingArray.push(false)
                     }
-                    console.log(Image);
-                    
-                
                 return(
                     <div className={`${theme ? 'shadow-md shadow-blue-500 border-gray-500' : 'shadow-lg shadow-slate-600'} py-6 px-2 rounded-xl my-2 ml-2`} key={id}>
                         <div className="grid px-3">
@@ -44,13 +40,11 @@ export default function Review({updateReview,setAuthEmail}) {
                             </div>
                             <div className="flex gap-x-4 items-center">
                             <img src={Image} alt="Image" className="w-10 h-10 rounded-[50%] object-cover" />
-
                             <div className="grid gap-0 content-start items-center">
                                 <p className="text-base md:text-xl flex items-center gap-x-1 font-bold font-serif">{Name ==="Muthupandi" ?(<> <span>{Name}</span><img src='images/auth.png' className="w-4 h-4 "/></>):Name}</p>
                                 <p className="text-sm md:text-base tracking-tighter pl-1font-semibold">{Person}</p>
                             </div>
                             </div>
-                            
                         </div>
                             <p className="w-56 h-56 md:w-80 px-4 my-2 text-justify tracking-tighter mb-2 py-2 overflow-y-auto hover:scrollbar-thin scrollbar-thumb-rounded scrollbar-none  scrollbar-thumb-gray-600 scrollbar-track-gray-200">{FeedBack}</p>
                         <p className="text-right font-bold pr-3 my-1">{getTimeAgo(Date)}</p>
@@ -60,3 +54,4 @@ export default function Review({updateReview,setAuthEmail}) {
         </div>
     )
 };
+

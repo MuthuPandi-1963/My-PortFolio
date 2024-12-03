@@ -1,18 +1,17 @@
 import { useContext, useState, useEffect } from "react";
-import ThemeContext from "../context/themeContext";
-import Review from "./Review";
-import Contact from "./Contact";
+import ThemeContext from "../ColorTheme/themeContext.jsx";
+import Review_Show from './Review_Show.jsx';
+import Review_Form from './Review_Form.jsx';
 import { collection, getDocs, query } from "firebase/firestore";
-import { db } from "../firebase/firebaseconfig";
-import { storage } from "../firebase/firebaseconfig.js";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
+import { db, storage } from "../firebase/firebaseconfig.js";
 
-export default function Star() {
+export default function Review() {
   const [img, setImg] = useState(null);
   const [storedImg, setStoredImg] = useState([]);
   const { theme } = useContext(ThemeContext);
   const [updateReview, setUpdatedReview] = useState(false);
-  const [authEmail, setAuthEmail] = useState();
+  const [authEmail, setAuthEmail] = useState(null);
   const [viewImg, setViewImg] = useState(false);
   
   async function handleImgChange(event) {
@@ -143,48 +142,17 @@ export default function Star() {
               </button>
             )}
           </div>
-          <Contact
+          <Review_Form
             img={img}
             AuthEmail={authEmail}
             setImg={setImg}
             setUpdatedReview={setUpdatedReview}
             authMail={authEmail}
             setViewImg={setViewImg}
-          />
+          />    
         </div>
       </div>
-      <Review updateReview={updateReview} setAuthEmail={setAuthEmail} />
+      <Review_Show updateReview={updateReview} setAuthEmail={setAuthEmail} />
     </>
   );
-}
-
-export function ProfileImage(){
-  async function handleImgChange(event) {
-    const file = event.target.files[0];
-    if (file) {
-      if (!file.type.startsWith("image/")) {
-        setError("Please upload a valid image file.");
-        setTimeout(() => setError(null), 3500);
-        return;
-      }
-
-      try {
-        const storageRef = ref(storage, `images/${file.name}`);
-        await uploadBytes(storageRef, file);
-        const downloadURL = await getDownloadURL(storageRef);
-        console.log(downloadURL);
-        
-        setImg(downloadURL);
-      } catch (error) {
-        console.log(error);
-        
-        setError("Error uploading image. Please try again.");
-        setTimeout(() => setError(null), 3500);
-      }
-    }
-  }
-  return (
-    <>
-    </>
-  )
 }

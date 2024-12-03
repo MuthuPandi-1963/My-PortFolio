@@ -1,12 +1,12 @@
 import { useContext, useRef, useState } from "react"
-import ThemeContext from "../context/themeContext"
-import Review_star from './Review_star.jsx';
+import ThemeContext from "../ColorTheme/themeContext.jsx"
+import Review_Star from './Review_Star.jsx';
 import {motion} from 'framer-motion';
 import { addDoc, collection } from "firebase/firestore";
 import { db } from "../firebase/firebaseconfig.js";
 
 const stars =[false,false,false,false,false];
-export default function Contact({img,setImg,setUpdatedReview,authMail,setViewImg}) {
+export default function Review_Form({img,setImg,setUpdatedReview,authMail,setViewImg}) {
     const {theme} = useContext(ThemeContext);
     const [error,setError] = useState(false)
     const [star,setStar] = useState(stars)
@@ -41,7 +41,6 @@ export default function Contact({img,setImg,setUpdatedReview,authMail,setViewImg
           return;
         }
         try {
-          // Reference to the Firestore collection
           const docRef = await addDoc(collection(db, "Reviews"), data);
           ResetForm()
           console.log("Document written with ID: ", docRef.id);
@@ -49,7 +48,6 @@ export default function Contact({img,setImg,setUpdatedReview,authMail,setViewImg
           console.error("Error adding document: ", error);
         }
         finally{
-          console.log(data);
         }
         
     }
@@ -63,7 +61,6 @@ export default function Contact({img,setImg,setUpdatedReview,authMail,setViewImg
       setUpdatedReview(prev=>!prev)
       setViewImg(false)
     }
-    console.log(authMail);
     
 const classNameInput =`pl-2 flex-grow my-1 border-2 rounded placeholder:text-black placeholder:pl-2 h-8 mx-2
  ${theme ? 'border-black text-black' : 'border-black text-black'}`
@@ -76,7 +73,7 @@ const classNameInput =`pl-2 flex-grow my-1 border-2 rounded placeholder:text-bla
                  animate={{y:0,opacity:1,transition:{ease:'easeInOut',duration:1,delay:0.2}}}
                  className={`w-3/4 mx-auto fixed bg-orange-400 py-2 top-[20%] text-black text-center rounded-md font-bold  px-4 md:px-16 flex items-center border ${theme ? 'shadow-md shadow-blue-500 border-gray-500' : 'shadow-lg shadow-slate-600'}`}>{error} and try Again</motion.p>}
                     <h1 className="text-center text-2xl font-semibold mt-2">Write a Review❤️</h1>
-                    <Review_star className ={"md:justify-self-end"} star={star} stars={stars} setStar={setStar}  />
+                    <Review_Star className ={"md:justify-self-end"} star={star} stars={stars} setStar={setStar}  />
                     <input type="text" placeholder={`Enter a Name`}  className={classNameInput} ref={NameRef}/>
                     <input type="email" placeholder={`Enter a Email Address`}  className={classNameInput} ref={GmailRef}/>
                     <input type="email" placeholder={`You are my...(Ex : Student,Junior..)`}  className={classNameInput} ref={PersonRef}/>

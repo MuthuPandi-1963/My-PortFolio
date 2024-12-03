@@ -1,26 +1,23 @@
-import About from "./components/About";
-import AboutMe from "./components/AboutMe";
-import Experience from "./components/Experience";
-import NavBar from "./components/NavBar";
-import Project from "./components/Projects";
-import { NavMenu } from "./components/SideBar";
-import Skills from "./components/Skills";
-import Star from "./components/Star";
-import Theme from "./components/Theme";
+import AboutMe from "./components/About/AboutMe.jsx";
+import Experience from "./components/Experience/Experience.jsx";
+import IntroDetails from "./components/Introduction/IntroDetails";
+import NavBar from "./components/NavBar/NavBar.jsx";
+import Project from "./components/Project/Project.jsx";
+import Skills from "./components/Skills/Skills.jsx";
+import Theme from './components/ColorTheme/Theme.jsx';
+import Review from "./components/ReviewSection/Review.jsx";
+
 
 export default function App() {
   return (
     <Theme>
-      <div className="sticky top-0 bg-inherit pb-3 pt-2 z-10">
-        <NavBar />
-        <NavMenu />
-      </div>
-      <About />
-      <AboutMe />
-      <Skills />
-      <Experience />
-      <Project />
-      <Star />
+      <NavBar/>
+      <IntroDetails/>
+      <AboutMe/>
+      <Skills/>
+      <Experience/>
+      <Project/>
+      <Review/>
     </Theme>
   );
 }
