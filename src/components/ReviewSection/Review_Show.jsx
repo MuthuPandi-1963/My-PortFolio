@@ -20,7 +20,7 @@ export default function Review_Show({updateReview,setAuthEmail}) {
       },[updateReview])
       
     return (
-        <div className="my-10 w-[95%] mx-auto">
+        <div className="my-10 w-[95%] mx-auto ">
             <h1 className="text-3xl text-center md:text-5xl font-bold font-serif md:my-12 w-full my-2">What Our Pupils and Juniors Says</h1>
             <div className="flex overflow-x-auto gap-x-8  ">
                 {review.map(({Name,Gmail,Rating,FeedBack,Image,Date,Person},id)=>{
@@ -30,7 +30,7 @@ export default function Review_Show({updateReview,setAuthEmail}) {
                         else ratingArray.push(false)
                     }
                 return(
-                    <div className={`${theme ? 'shadow-md shadow-blue-500 border-gray-500' : 'shadow-lg shadow-slate-600'} py-6 px-2 rounded-xl my-2 ml-2`} key={id}>
+                    <div className={`${theme ? 'shadow-md shadow-blue-500 border-gray-500' : 'shadow-lg shadow-slate-600'} py-6 px-2 mr-3 rounded-xl my-2 ml-2`} key={id}>
                         <div className="grid px-3">
                         <div className="rating justify-self-end flex mb-4">
                                 {ratingArray.map((item,id)=>{
