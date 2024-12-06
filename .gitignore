@@ -25,5 +25,3 @@ dist-ssr
 
 
 .env          # Environment variables
-*.cache       # Caching files
-coverage      # Test coverage reports
