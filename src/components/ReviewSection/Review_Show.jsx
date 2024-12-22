@@ -4,6 +4,7 @@ import getTimeAgo from "../firebase/time";
 import { Star, Star_fill } from "../icons/Icon";
 import ThemeContext from "../ColorTheme/themeContext";
 import { db } from "../firebase/firebaseconfig";
+import { a } from "framer-motion/client";
 
 export default function Review_Show({updateReview,setAuthEmail}) {
     const {theme} = useContext(ThemeContext)
@@ -14,6 +15,7 @@ export default function Review_Show({updateReview,setAuthEmail}) {
             const querySnapshot = await getDocs(q);
             const ReviewsData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()}));
             setAuthEmail(ReviewsData)
+            ReviewsData.sort((a,b)=>b.FeedBack.length-a.FeedBack.length)
             setReview(ReviewsData)
         }
         GetData()
