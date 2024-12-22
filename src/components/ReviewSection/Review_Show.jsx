@@ -16,6 +16,12 @@ export default function Review_Show({updateReview,setAuthEmail}) {
             const ReviewsData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()}));
             setAuthEmail(ReviewsData)
             ReviewsData.sort((a,b)=>b.FeedBack.length-a.FeedBack.length)
+            ReviewsData.map((Review,index)=>{
+                if(!Review.Date){
+                    console.log(Review);
+                }
+                })
+            
             setReview(ReviewsData)
         }
         GetData()

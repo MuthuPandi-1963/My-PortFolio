@@ -1,9 +1,9 @@
 import { storage } from "./firebaseconfig";
 
 export default function getTimeAgo(firebaseTimestamp) {
-    const now = new Date();
-    const time = new Date(firebaseTimestamp.seconds * 1000); // Convert seconds to milliseconds
-    const diffInSeconds = Math.floor((now - time) / 1000); // Difference in seconds
+  // console.log(firebaseTimestamp);
+    const time = new Date((firebaseTimestamp.seconds) * 1000); // Convert seconds to milliseconds
+    const diffInSeconds = Math.floor((Date.now() - time) / 1000); // Difference in seconds
   
     if (diffInSeconds < 60) {
       return `${diffInSeconds} seconds ago`;
