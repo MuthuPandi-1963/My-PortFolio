@@ -135,7 +135,7 @@ export default function Review() {
                 className="w-[80%] lg:w-full  md:h-[300px] mx-auto my-2 rounded-xl p-2 bg-transparent"
               >
                 <img
-                  src={`${img ? img : 'https://firebasestorage.googleapis.com/v0/b/dummy-59bd8.firebasestorage.app/o/coder.png?alt=media&token=25975aba-a4b2-4643-95ef-e9b8f50b9ff3'}`}
+                  src={`${img ? img : import.meta.env.VITE_DEFAULT_PROFILE_URL}`}
                   alt="Coder"
                   className={profileImgClassName}
                 />

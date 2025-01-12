@@ -23,7 +23,7 @@ export default function Review_Form({img,setImg,setUpdatedReview,authMail,setVie
             FeedBack:FeedBackRef.current.value ? FeedBackRef.current.value:null,
             Rating:Rating,
             Date: new Date(),
-            Image : img || 'https://firebasestorage.googleapis.com/v0/b/dummy-59bd8.firebasestorage.app/o/coder.png?alt=media&token=25975aba-a4b2-4643-95ef-e9b8f50b9ff3'
+            Image : img || import.meta.env.VITE_DEFAULT_PROFILE_URL
         }
         const IsAlready = authMail.filter(item=>item.Gmail == data.Gmail)
         if(IsAlready.length > 0){
