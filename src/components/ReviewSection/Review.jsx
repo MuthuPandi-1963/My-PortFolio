@@ -13,7 +13,6 @@ export default function Review() {
   const [updateReview, setUpdatedReview] = useState(false);
   const [authEmail, setAuthEmail] = useState(null);
   const [viewImg, setViewImg] = useState(false);
-  
   async function handleImgChange(event) {
     const file = event.target.files[0];
     if (file) {
@@ -135,7 +134,7 @@ export default function Review() {
                 className="w-[80%] lg:w-full  md:h-[300px] mx-auto my-2 rounded-xl p-2 bg-transparent"
               >
                 <img
-                  src={`${img ? img : import.meta.env.VITE_DEFAULT_PROFILE_URL}`}
+                  src={`${img ? img : import.meta.env.VITE_DEFAULT_PROFILE_URL || "https://firebasestorage.googleapis.com/v0/b/dummy-59bd8.firebasestorage.app/o/coder.png?alt=media&token=25975aba-a4b2-4643-95ef-e9b8f50b9ff3"}`}
                   alt="Coder"
                   className={profileImgClassName}
                 />

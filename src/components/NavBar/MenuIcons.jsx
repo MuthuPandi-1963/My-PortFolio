@@ -37,14 +37,12 @@ export default function MenuIcons() {
         )}
         <div className="">
           {
-          MenuIconsItems.map(({icon,link})=>(
-            <>
-            <a href={link}>
+          MenuIconsItems.map(({icon,link},id)=>(
+            <a href={link} key={id}>
           <button className={`${theme ? 'hover:text-blue-700' : 'hover:text-violet-800'}`}>
             {icon}
           </button>
         </a>
-            </>
           ))}</div>
         
         

@@ -19,10 +19,7 @@ export default function MyDetails() {
         <br />
         <br />
         Currently, as a <strong>Technical Trainee</strong> at{" "}
-        <strong>NetworkZ Systems</strong>, I work on environment assessments,
-        solar panel installations, and team leadership. This hands-on experience
-        has enhanced my skills in project management and team collaboration,
-        essential for success in the tech industry.
+        <strong>NetworkZ Systems</strong>, 
       </p>
 
       <p className="indent-6 hidden md:block">
