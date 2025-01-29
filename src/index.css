@@ -13,7 +13,7 @@
     width: 22px;
 }
 #icons button{
-    @apply  cursor-pointer p-2 
+    @apply  cursor-pointer md:p-2 p-1
 }
 .menu li{
     

@@ -1,19 +1,18 @@
 import { useContext } from "react";
-import { Github, Instagram, LinkedIn, Moon, Sun } from "../icons/Icon";
 import ThemeContext from "../ColorTheme/themeContext";
 
-
+import {DarkMode, LightMode ,Instagram , GitHub ,LinkedIn } from '@mui/icons-material';
 const MenuIconsItems = [
   {
-    icon :<Github/> ,
+    icon :<GitHub className="text-[10px]"/> ,
     link : "https://github.com/MuthuPandi-1963"
   },
   {
-    icon :<Instagram/> ,
+    icon :<Instagram className="text-[10px]"/> ,
     link : "https://www.instagram.com/__mr.prank/profilecard/?igsh=cmhxeXdqNmV5NzVl"
   },
   {
-    icon :<LinkedIn/> ,
+    icon :<LinkedIn className="text-[10px]"/> ,
     link : "https://www.linkedin.com/in/muthupandi-r-832559325/"
   },
 ]
@@ -28,11 +27,11 @@ export default function MenuIcons() {
         <div id="icons" className="flex items-center bg-transparent">
         {theme ? (
           <button onClick={HandleClick } className={`${theme ? 'hover:text-blue-700' : 'hover:text-violet-800'}`}>
-            <Moon/>
+            <DarkMode className="text-[10px]" />
           </button>
         ) : (
           <button onClick={HandleClick} className={`${theme ? 'hover:text-blue-700' : 'hover:text-violet-800'}`}>
-            <Sun/>
+            <LightMode className="text-[10px]"/>
           </button>
         )}
         <div className="">
