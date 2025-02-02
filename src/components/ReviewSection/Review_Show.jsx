@@ -15,14 +15,10 @@ export default function Review_Show({updateReview,setAuthEmail}) {
             const querySnapshot = await getDocs(q);
             const ReviewsData = querySnapshot.docs.map((doc) => ({ id: doc.id, ...doc.data()}));
             setAuthEmail(ReviewsData)
-            ReviewsData.sort((a,b)=>b.FeedBack.length-a.FeedBack.length)
-            ReviewsData.map((Review,index)=>{
-                if(!Review.Date){
-                    console.log(Review);
-                }
-                })
-            
-            setReview(ReviewsData)
+            const myData = ReviewsData.filter(val=>val.Gmail === "muthupandir74738@gmail.com")
+            const ClientsData = ReviewsData.filter(val=>val.Gmail !== "muthupandir74738@gmail.com").sort((a,b)=>b.FeedBack.length-a.FeedBack.length)
+            const FeedbackData = [...myData,...ClientsData]
+            setReview(FeedbackData)
         }
         GetData()
       },[updateReview])
