@@ -49,7 +49,7 @@ export default function Skills() {
                 <img
                   src={skill.image}
                   alt={skill.name}
-                  className="w-12 md:w-[80px]"
+                  className="sm:w-12 md:w-[80px] w-8"
                 />
               </motion.div>
             ))}

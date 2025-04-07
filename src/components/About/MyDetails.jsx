@@ -1,4 +1,6 @@
 import {motion} from 'framer-motion';
+import { FaDownload } from 'react-icons/fa6';
+import { MdRemoveRedEye } from 'react-icons/md';
 export default function MyDetails() {
   return (
     <>
@@ -30,6 +32,7 @@ export default function MyDetails() {
         contributions and connecting with like-minded developers to push the
         boundaries of innovation in technology.
       </p>
+      
     </motion.div>
     </>
 

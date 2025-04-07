@@ -4,7 +4,7 @@ import { SiLeetcode } from "react-icons/si";
 import {DarkMode, LightMode ,Instagram , GitHub ,LinkedIn } from '@mui/icons-material';
 const MenuIconsItems = [
   {
-    icon :<SiLeetcode className="text-xl"/> ,
+    icon :<SiLeetcode className="sm:text-xl text-lg"/> ,
     link : "https://leetcode.com/u/mr_prank__/"
   },
   {
@@ -40,11 +40,12 @@ export default function MenuIcons() {
             <LightMode className="text-[10px]"/>
           </button>
         )}
-        <div className="flex items-center">
+        <div className="flex items-center w-fit ">
           {
           MenuIconsItems.map(({icon,link},id)=>(
-            <a href={link} key={id} className="">
-          <button className={`${theme ? 'hover:text-blue-700' : 'hover:text-violet-800'}`}>
+            <a href={link} key={id} className="w-fit" target="_blank"
+            rel="noopener noreferrer">
+          <button  className={`${theme ? 'hover:text-blue-700' : 'hover:text-violet-800'}`}>
             {icon}
           </button>
         </a>

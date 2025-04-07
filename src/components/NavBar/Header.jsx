@@ -1,4 +1,4 @@
-import { Code } from "../icons/Icon";
+import { FaCode } from "react-icons/fa6";
 
 export default function Header() {
   
@@ -8,7 +8,7 @@ export default function Header() {
         <h1 className="text-xl md:text-2xl whitespace-nowrap font-bold bg-gradient-to-tr to-indigo-700 tracking-wide">
           Prank Coder
         </h1>
-        <Code />
+        <FaCode className="md:text-2xl text-lg"/>
       </div>
     )
 };

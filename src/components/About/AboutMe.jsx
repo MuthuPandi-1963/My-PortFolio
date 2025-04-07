@@ -1,3 +1,5 @@
+import { FaDownload } from "react-icons/fa6";
+import { MdRemoveRedEye } from "react-icons/md";
 import MyDetails from "./MyDetails";
 import {motion} from 'framer-motion';
 export default function AboutMe() {
@@ -10,7 +12,7 @@ export default function AboutMe() {
              initial={{x:-100 , opacity:0}}
              transition={{duration:0.8 ,delay:0.4}} alt="Pandi"className="self-start w-full md:w-[30%] rounded-xl shadow-lg shadow-zinc-800 " />
             <MyDetails/>
-
+            
         </div>
     </div>
     )
