@@ -68,7 +68,7 @@ export default function Review() {
   return (
     <>
       <div
-        className={`w-[80%] mx-auto rounded-lg my-4  md:p-6 py-8  border ${
+        className={`md:w-3/4 w-[90%] mx-auto rounded-lg my-4  md:p-6 py-8  border ${
           theme
             ? "shadow-md shadow-blue-500 border-gray-500"
             : "shadow-lg shadow-slate-600"

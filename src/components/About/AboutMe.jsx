@@ -4,7 +4,7 @@ import MyDetails from "./MyDetails";
 import {motion} from 'framer-motion';
 export default function AboutMe() {
     return (
-        <div className="w-3/4 mx-auto">
+        <div className="md:w-3/4 w-[90%] mx-auto">
         <h1 className="text-2xl text-center md:text-5xl font-bold mt-8 mb-4">About Me</h1>
         <div className="md:flex w-4/4 items-center md:justify-evenly gap-x-6">
             <motion.img src="images/Me.jpg"

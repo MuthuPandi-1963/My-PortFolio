@@ -10,11 +10,11 @@ export default function IntroDetails() {
 
   let border = theme ? "  border-gray-800" : " border-zinc-400";
   let classBorder =
-    "w-full grid md:px-20 justify-items-center justify-between md:flex px-4 pt-6 md:pt-10 border-b-[1px] pb-12";
+    "w-full grid md:px-20 justify-items-center justify-between md:flex px-4 pt-6 md:pt-10 border-b-[1px]";
   classBorder += border;
   return (
     <div className={classBorder}>
-      <div className="grid  md:w-3/4 content-center px-10 ">
+      <div className="grid  md:w-3/4 content-center px-4 sm:px-10">
         <motion.h1
           whileInView={{ x: 0, opacity: 1 }}
           initial={{ x: -100, opacity: 0 }}
@@ -27,7 +27,7 @@ export default function IntroDetails() {
           whileInView={{ x: 0, opacity: 1 }}
           initial={{ x: -100, opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.5 }}
-          className="text-[16px] md:text-2xl lg:text-3xl xl:4xl tracking-wider my-4 font-black bg-gradient-to-r from-red-700 to-blue-800 bg-clip-text text-transparent whitespace-pre-wrap z-0"
+          className="text-[16px] md:text-2xl  lg:text-3xl xl:4xl tracking-wider my-4 font-black bg-gradient-to-r from-red-700 to-blue-800 bg-clip-text text-transparent whitespace-pre-wrap z-0"
         >
           {" "}
           {Intro.Job_Role}
@@ -38,10 +38,10 @@ export default function IntroDetails() {
           whileInView={{ x: 0, opacity: 1 }}
           initial={{ x: -100, opacity: 0 }}
           transition={{ duration: 0.5, delay: 0.8 }}
-          className="text-justify tracking-tighter w-full md:mt-10 float-left"
+          className="text-justify tracking-tighter w-full md:w-3/4 md:mt-10 float-left"
         >
           {Intro.Description}
-          <div className="inline-flex items-center gap-x-3 border-b-2 my-4 pl-2 w-fit pr-4 py-2 rounded">
+          <div className="flex items-center gap-x-3 border-b-2 my-4 pl-2 w-fit pr-4 py-2 rounded">
         <p className=" font-medium text-2xl">Resume</p>
         <a
         href="/resume.pdf"

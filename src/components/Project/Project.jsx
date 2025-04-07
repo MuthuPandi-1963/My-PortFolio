@@ -11,7 +11,7 @@ export default function Project() {
     "grid  p-4 mt-8 rounded-2xl md:flex md:flex-nowrap justify-evenly items-center md:gap-x-20 transition-transform hover:scale-110 cursor-pointer";
   classImg += Shadow;
   return (
-    <div className="w-3/4 mx-auto pb-10 " id="projects">
+    <div className="md:w-3/4 w-[90%] mx-auto pb-10 " id="projects">
       <h1 className="text-3xl text-center md:text-5xl font-bold  md:my-12">
         Projects
       </h1>

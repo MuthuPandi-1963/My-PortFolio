@@ -1,7 +1,7 @@
 import experience from './Experience';
 export default function Experience() {
     return (
-        <div className="w-3/4 mx-auto pb-10" id="experience">
+        <div className="md:w-3/4 w-[90%] mx-auto pb-10" id="experience">
             <h1 className="text-3xl text-center md:text-5xl font-bold my-12">Work Experience</h1>
 
             {experience.map(({duration,companyName,description,skills},id) =>(
