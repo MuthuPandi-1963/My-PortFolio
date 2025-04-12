@@ -5,7 +5,7 @@ import Review_Form from './Review_Form.jsx';
 import { collection, getDocs, query } from "firebase/firestore";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { db, storage } from "../firebase/firebaseconfig.js";
-
+import user from '../../user.png'
 export default function Review() {
   const [img, setImg] = useState(null);
   const [storedImg, setStoredImg] = useState([]);
@@ -13,6 +13,7 @@ export default function Review() {
   const [updateReview, setUpdatedReview] = useState(false);
   const [authEmail, setAuthEmail] = useState(null);
   const [viewImg, setViewImg] = useState(false);
+  
   async function handleImgChange(event) {
     const file = event.target.files[0];
     if (file) {
@@ -59,7 +60,7 @@ export default function Review() {
 
     fetchAvatars();
   }, []);
-  const profileImgClassName = `rounded-full object-center  hover:box-shadow-lg-dark hover:opacity-60 w-96  h-72 rounded-xl justify-self-center md:w-full`;
+  const profileImgClassName = `rounded-full object-center  hover:box-shadow-lg-dark hover:opacity-60 w-96  h-60 rounded-xl justify-self-center md:w-full`;
   const profileBtnClassName = `rounded-full justify-self-center ${
     theme
       ? "shadow-md hover:shadow-blue-700 border-gray-500"
@@ -105,14 +106,13 @@ export default function Review() {
                   >
                     <p className="text-[10px]">add  Yours </p><p className="text-2xl">+</p>
                   </label>
-
                   <input
                     type="file"
                     id="file-upload"
                     accept="image/*"
                     onChange={(e)=>handleImgChange(e)}
                     className="hidden"
-                  />
+                  /> 
                   </div>
                 {storedImg.map(({ name = "Avatar", url = "" }, id) => (
                   <button
@@ -125,19 +125,29 @@ export default function Review() {
                       alt={name}
                       className="w-16 h-16 rounded-full "
                     />
+
                   </button>
                 ))}
               </div>
             ) : (
               <button
-                onClick={() => setViewImg((prev) => !prev)}
-                className="w-[80%] lg:w-full  md:h-[300px] mx-auto my-2 rounded-xl p-2 bg-transparent"
+                onClick={() => {
+                  setViewImg((prev) => !prev);
+                  setImg(null);
+                }}
+                className="w-[80%] lg:w-full  md:h-[300px] mx-auto my-2 rounded-xl p-2 bg-transparent relative"
               >
-                <img
+                {img && <img
                   src={`${img ? img : import.meta.env.VITE_DEFAULT_PROFILE_URL || "https://firebasestorage.googleapis.com/v0/b/dummy-59bd8.firebasestorage.app/o/coder.png?alt=media&token=25975aba-a4b2-4643-95ef-e9b8f50b9ff3"}`}
                   alt="Coder"
-                  className={profileImgClassName}
-                />
+                  className={`${profileImgClassName} ${!img && "opacity-50"}`}
+                />}
+                 {!img && <div className="z-40 flex flex-col items-center justify-center gap-2 md:py-10 p-4 border-2 border-dashed rounded-xl border-blue-600">
+                    <img src={user} alt="Add profile" className="w-20 h-20 md:w-32 md:h-32 object-cover opacity-75"/>
+                    <p className="font-bold tracking-tight text-center text-gray-600">Add your profile picture</p>
+                  </div> }
+                
+
               </button>
             )}
           </div>

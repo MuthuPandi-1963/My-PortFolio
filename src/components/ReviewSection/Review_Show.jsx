@@ -17,6 +17,7 @@ export default function Review_Show({updateReview,setAuthEmail}) {
             setAuthEmail(ReviewsData)
             const myData = ReviewsData.filter(val=>val.Gmail === "muthupandir74738@gmail.com")
             const ClientsData = ReviewsData.filter(val=>val.Gmail !== "muthupandir74738@gmail.com").sort((a,b)=>b.FeedBack.length-a.FeedBack.length)
+            .filter(val=>val.FeedBack.length >= 100)
             const FeedbackData = [...myData,...ClientsData]
             setReview(FeedbackData)
         }
