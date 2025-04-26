@@ -27,6 +27,7 @@ export default function Review_Show({updateReview,setAuthEmail}) {
     return (
         <div className="my-10 w-[95%] mx-auto " id="reviews">
             <h1 className="text-3xl text-center md:text-5xl font-bold font-serif md:my-12 w-full my-2">What Our Pupils and Juniors Says</h1>
+                <h1 className="text-2xl font-bold mb-1 ml-3 font-mono">Reviews({review.length})</h1>
             <div className="flex overflow-x-auto gap-x-8  ">
                 {review.map(({Name,Gmail,Rating,FeedBack,Image,Date,Person},id)=>{
                     let ratingArray=[]
