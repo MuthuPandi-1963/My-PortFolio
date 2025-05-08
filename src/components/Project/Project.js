@@ -15,7 +15,8 @@ const projects = [
       name: "YouTube Static Website",
       image:'images/youtube.jpg',
       technologies: ["HTML", "CSS", "JavaScript", "Tailwind CSS", "React", "Vercel"],
-      description: "Created a responsive static website resembling YouTube, with a navigation bar, video thumbnails, and basic styling. Utilized **React** for structure and **Tailwind CSS** for styling."
+      description: "Created a responsive static website resembling YouTube, with a navigation bar, video thumbnails, and basic styling. Utilized **React** for structure and **Tailwind CSS** for styling.",
+      preview : "https://muthupandi-1963.github.io/Youtube-Responsive-Static-Website/ "
     }
   ];
 
