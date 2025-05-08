@@ -6,6 +6,7 @@ import Project from "./components/Project/Project.jsx";
 import Skills from "./components/Skills/Skills.jsx";
 import Theme from './components/ColorTheme/Theme.jsx';
 import Review from "./components/ReviewSection/Review.jsx";
+import Education from "./components/Education/Education.jsx";
 
 
 export default function App() {
@@ -16,6 +17,7 @@ export default function App() {
       <AboutMe/>
       <Skills/>
       <Experience/>
+      <Education/>
       <Project/>
       <Review/>
     </Theme>
