@@ -44,8 +44,8 @@ export default function IntroDetails() {
           <div className="flex items-center gap-x-3 border-b-2 my-4 pl-2 w-fit pr-4 py-2 rounded">
         <p className=" font-medium text-2xl">Resume</p>
         <a
-        href="/resume.pdf"
-        // download="Muthupandi_Resume.pdf"
+        href="/mern_resume.pdf"
+        download="Muthupandi_Resume.pdf"
         className=" px-2 py-1 bg-slate-300 rounded-lg hover:bg-slate-700"
         target="_blank"
         rel="noopener noreferrer"
@@ -54,7 +54,7 @@ export default function IntroDetails() {
          
       </a>
       <a
-        href="/resume.pdf"
+        href="/mern_resume.pdf"
         download="Muthupandi_Resume.pdf"
         className=" px-2 py-1 bg-slate-300 rounded-lg hover:bg-slate-600"
       >
