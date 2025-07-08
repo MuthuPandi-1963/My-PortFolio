@@ -45,7 +45,7 @@ export default function IntroDetails() {
         <p className=" font-medium text-2xl">Resume</p>
         <a
         href="/mern_resume.pdf"
-        download="Muthupandi_Resume.pdf"
+        // download="Muthupandi_Resume.pdf"
         className=" px-2 py-1 bg-slate-300 rounded-lg hover:bg-slate-700"
         target="_blank"
         rel="noopener noreferrer"
