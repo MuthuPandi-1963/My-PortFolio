@@ -13,10 +13,6 @@ const MenuIconsItems = [
   },
   
   {
-    icon :<LinkedIn className="text-[10px]"/> ,
-    link : "https://www.linkedin.com/in/muthupandi-r-832559325/"
-  },
-  {
     icon :<Instagram className="text-[10px]"/> ,
     link : "https://www.instagram.com/__mr.prank/profilecard/?igsh=cmhxeXdqNmV5NzVl"
   },
