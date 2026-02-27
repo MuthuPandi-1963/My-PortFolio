@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://pandi.genzzi.in/sitemap.xml
