@@ -72,7 +72,7 @@ export default function IntroDetails() {
           transition={{ duration: 0.8, delay: 0.8 }}
           src={Intro.Image}
           alt="muthupandi"
-          className="rounded-lg shadow-md shadow-slate-700 w-full"
+          className="rounded-lg  w-full"
         />
       </div>
     </div>
