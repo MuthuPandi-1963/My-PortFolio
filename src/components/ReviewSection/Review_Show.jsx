@@ -24,6 +24,8 @@ export default function Review_Show({updateReview,setAuthEmail}) {
         GetData()
       },[updateReview])
       
+      console.log(review);
+      
     return (
         <div className="my-10 w-[95%] mx-auto " id="reviews">
             <h1 className="text-3xl text-center md:text-5xl font-bold font-serif md:my-12 w-full my-2">What Our Pupils and Juniors Says</h1>
@@ -45,7 +47,7 @@ export default function Review_Show({updateReview,setAuthEmail}) {
                                 })}
                             </div>
                             <div className="flex gap-x-4 items-center">
-                            <img src={Image} alt="Image" className="w-10 h-10 rounded-[50%] object-cover" />
+                            <img src={Image || "/public/hacker.png"} alt="Image" className="w-10 h-10 rounded-[50%] object-cover" />
                             <div className="grid gap-0 content-start items-center">
                                 <p className="text-base md:text-xl flex items-center gap-x-1 font-bold font-serif">{Name ==="Muthupandi" ?(<> <span>{Name}</span><img src='images/auth.png' className="w-4 h-4 "/></>):Name}</p>
                                 <p className="text-sm md:text-base tracking-tighter pl-1font-semibold">{Person}</p>
